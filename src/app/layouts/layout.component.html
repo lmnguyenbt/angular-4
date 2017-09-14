@@ -1,0 +1,23 @@
+<!-- Header -->
+<app-header></app-header>
+
+<div class="app-body">
+    <div class="sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+
+    <!-- Main content -->
+    <main class="main">
+        <!-- Breadcrumb -->
+        <app-breadcrumb></app-breadcrumb>
+
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+        </div><!-- /.conainer-fluid -->
+    </main>
+
+    <app-aside></app-aside>
+</div>
+
+<!-- Footer -->
+<app-footer></app-footer>
