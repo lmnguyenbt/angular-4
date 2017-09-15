@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
@@ -17,6 +19,7 @@ import { AppRoutingModule } from './app.routing';
 
 // Layouts
 import { LayoutComponent } from './layouts/layout.component';
+import { SingleLayoutComponent } from './layouts/single-layout.component';
 
 // Shared Component
 import { HeaderComponent } from './shared/header/header.component';
@@ -25,9 +28,21 @@ import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
 import { AsideComponent } from './shared/aside/aside.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
+// Authenticate
+import { AuthGuard } from './authenticate/auth-guard.service';
+import { NoAuthGuard } from './authenticate/no-auth-guard.service';
+import { JwtService } from './authenticate/jwt.service';
+import { UserService } from './authenticate/user.service';
+
+// Api Service
+import { ApiService } from './commons/api.service';
+
 @NgModule({
     imports: [
         BrowserModule,
+        FormsModule,
+        HttpModule,
+        ReactiveFormsModule,
         AppRoutingModule,
         BsDropdownModule.forRoot(),
         TabsModule.forRoot(),
@@ -36,6 +51,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     declarations: [
         AppComponent,
         LayoutComponent,
+        SingleLayoutComponent,
         NAV_DROPDOWN_DIRECTIVES,
         BreadcrumbsComponent,
         SIDEBAR_TOGGLE_DIRECTIVES,
@@ -46,10 +62,17 @@ import { FooterComponent } from './shared/footer/footer.component';
         BreadcrumbComponent,
         FooterComponent
     ],
-    providers: [{
-        provide: LocationStrategy,
-        useClass: HashLocationStrategy
-    }],
+    providers: [
+        ApiService,
+        AuthGuard,
+        NoAuthGuard,
+        JwtService,
+        UserService,
+        {
+            provide: LocationStrategy,
+            useClass: HashLocationStrategy
+        }
+    ],
     bootstrap: [ AppComponent ]
 })
 export class AppModule { }

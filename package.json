@@ -1,14 +1,14 @@
 {
-    "name": "frontend2",
+    "name": "angular4-cli",
     "version": "0.0.1",
     "description": "Open Source Bootstrap Admin Template",
     "author": "",
     "url": "http://coreui.io",
-    "copyright": "Copyright 2017 creativeLabs Łukasz Holeczek",
+    "copyright": "Copyright 2017 lmnguyenbt@gmail.com",
     "license": "MIT",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve --port 5000",
+        "start": "ng serve --port 4000",
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
