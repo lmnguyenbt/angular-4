@@ -4,6 +4,10 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
+// Idle / npm install --save @ng-idle/core @ng-idle/keepalive angular2-moment
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive'; // this includes the core NgIdleModule but includes keepalive providers for easy wireup
+import { MomentModule } from 'angular2-moment'; // optional, provides moment-style pipes for date formatting
+
 import { AppComponent } from './app.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -46,7 +50,9 @@ import { ApiService } from './commons/api.service';
         AppRoutingModule,
         BsDropdownModule.forRoot(),
         TabsModule.forRoot(),
-        ChartsModule
+        ChartsModule,
+        MomentModule,
+        NgIdleKeepaliveModule.forRoot()
     ],
     declarations: [
         AppComponent,
@@ -73,6 +79,8 @@ import { ApiService } from './commons/api.service';
             useClass: HashLocationStrategy
         }
     ],
-    bootstrap: [ AppComponent ]
+    bootstrap: [
+        AppComponent
+    ]
 })
 export class AppModule { }
