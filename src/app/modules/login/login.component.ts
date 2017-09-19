@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
     isSubmitting = false;
     error = '';
 
+    public loading = false;
+
     constructor( private router: Router, private userService: UserService ) { }
 
     ngOnInit(): void {
@@ -30,12 +32,14 @@ export class LoginComponent implements OnInit {
     }
 
     submitForm() {
+        this.loading = true;
         this.isSubmitting = true;
 
         //const credentials = this.authForm.value;
         this.userService.attemptAuth(this.authType, this.model)
             .subscribe(
                 data => {
+                    this.loading = false;
                     // Save user data to localstoge
 
                     // Route to Dashboard

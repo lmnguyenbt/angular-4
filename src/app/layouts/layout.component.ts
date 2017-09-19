@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LoaderService } from '../commons/loader.service';
+
 @Component({
 	selector: 'app-dashboard',
 	templateUrl: './layout.component.html'
@@ -19,5 +21,13 @@ export class LayoutComponent implements OnInit {
         this.status.isopen = !this.status.isopen;
     }
 
-	ngOnInit(): void {}
+    showLoader: boolean;
+
+    constructor(private loader: LoaderService) {}
+
+	ngOnInit(): void {
+        this.loader.status.subscribe((val: boolean) => {
+            this.showLoader = val;
+        });
+    }
 }

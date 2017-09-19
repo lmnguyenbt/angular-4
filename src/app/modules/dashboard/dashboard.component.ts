@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { LoaderService } from '../../commons/loader.service';
+
 @Component({
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-// constructor( ) { }
 
     public brandPrimary = '#20a8d8';
     public brandSuccess = '#4dbd74';
@@ -460,9 +461,13 @@ export class DashboardComponent implements OnInit {
     public sparklineChartLegend = false;
     public sparklineChartType = 'line';
 
+    constructor(private loader: LoaderService) { }
 
     ngOnInit(): void {
         console.log("Dashboard component initialized ...");
+
+        //http call starts
+        this.loader.display(true);
 
         // generate random values for mainChart
         for (let i = 0; i <= this.mainChartElements; i++) {
@@ -470,5 +475,10 @@ export class DashboardComponent implements OnInit {
             this.mainChartData2.push(this.random(80, 100));
             this.mainChartData3.push(65);
         }
+
+        setTimeout(() => {
+            //http call ends
+            this.loader.display(false);
+        }, 20000);
     }
 }

@@ -20,9 +20,12 @@
             "prefix": "app",
             "styles": [
                 "styles.scss",
-                "assets/scss/main.scss"
+                "assets/scss/main.scss",
+                "../node_modules/loaders.css/loaders.min.css"
             ],
-            "scripts": [],
+            "scripts": [
+
+            ],
             "environmentSource": "environments/environment.ts",
             "environments": {
                 "dev": "environments/environment.ts",

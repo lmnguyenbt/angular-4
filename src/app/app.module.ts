@@ -8,6 +8,11 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive'; // this includes the core NgIdleModule but includes keepalive providers for easy wireup
 import { MomentModule } from 'angular2-moment'; // optional, provides moment-style pipes for date formatting
 
+// Loader CSS  (https://plnkr.co/edit/I3MoLhxz1NO9PVtMTiaH?p=preview)
+import { LoadersCssModule } from 'angular2-loaders-css';
+import { LoadingModule } from 'ngx-loading'; // need use
+
+// App Component
 import { AppComponent } from './app.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -24,6 +29,9 @@ import { AppRoutingModule } from './app.routing';
 // Layouts
 import { LayoutComponent } from './layouts/layout.component';
 import { SingleLayoutComponent } from './layouts/single-layout.component';
+
+// Common
+import { LoaderService } from './commons/loader.service';
 
 // Shared Component
 import { HeaderComponent } from './shared/header/header.component';
@@ -52,7 +60,9 @@ import { ApiService } from './commons/api.service';
         TabsModule.forRoot(),
         ChartsModule,
         MomentModule,
-        NgIdleKeepaliveModule.forRoot()
+        NgIdleKeepaliveModule.forRoot(),
+        LoadersCssModule,
+        LoadingModule
     ],
     declarations: [
         AppComponent,
@@ -74,6 +84,7 @@ import { ApiService } from './commons/api.service';
         NoAuthGuard,
         JwtService,
         UserService,
+        LoaderService,
         {
             provide: LocationStrategy,
             useClass: HashLocationStrategy
