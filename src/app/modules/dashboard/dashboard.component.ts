@@ -479,6 +479,6 @@ export class DashboardComponent implements OnInit {
         setTimeout(() => {
             //http call ends
             this.loader.display(false);
-        }, 20000);
+        }, 10000);
     }
 }

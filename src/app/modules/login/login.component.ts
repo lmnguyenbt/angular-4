@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigateByUrl('/dashboard');
                 },
                 err => {
+                    this.loading = false;
                     this.isSubmitting = false;
                 }
         );

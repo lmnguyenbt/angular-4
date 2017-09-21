@@ -27,6 +27,11 @@ export const routes: Routes = [
                 canActivate: [AuthGuard],
                 loadChildren: './modules/dashboard/dashboard.module#DashboardModule'
             },
+            {
+                path: 'components',
+                canActivate: [AuthGuard],
+                loadChildren: './modules/components/components.module#ComponentsModule'
+            },
         ]
     },
     {

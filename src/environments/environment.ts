@@ -5,5 +5,5 @@
 
 export const environment = {
     production: false,
-    api_url: 'http://api.pom.dev.seldatdirect.com/api/v1'
+    api_url: 'https://api.pom.staging.seldatdirect.com/api/v1'
 };

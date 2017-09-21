@@ -12,6 +12,9 @@ import { MomentModule } from 'angular2-moment'; // optional, provides moment-sty
 import { LoadersCssModule } from 'angular2-loaders-css';
 import { LoadingModule } from 'ngx-loading'; // need use
 
+// Paging
+import {NgxPaginationModule} from 'ngx-pagination';
+
 // App Component
 import { AppComponent } from './app.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -62,7 +65,8 @@ import { ApiService } from './commons/api.service';
         MomentModule,
         NgIdleKeepaliveModule.forRoot(),
         LoadersCssModule,
-        LoadingModule
+        LoadingModule,
+        NgxPaginationModule
     ],
     declarations: [
         AppComponent,
