@@ -1,4 +1,4 @@
-# Angular4 Cli - Authenticate Jwt
+# Angular4 Cli - Authenticate Jwt - API Service
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.1.
 
